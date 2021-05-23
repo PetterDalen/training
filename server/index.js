@@ -3,16 +3,18 @@ import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
 import cors from 'cors'
 
-import postWorkouts from './routes/workouts.js';
+import workoutRoutes from './routes/workouts.js';
 
 
 const app = express();
 
-app.use('/workouts', postWorkouts);
 
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
+
+app.use('/workouts', workoutRoutes);
+console.log("kommer til index")
 
 const CONNECTION_URL = "mongodb+srv://mern:mongodb@cluster0.hp4kw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 const PORT = process.env.PORT || 5000;

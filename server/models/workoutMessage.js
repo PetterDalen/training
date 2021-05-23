@@ -2,10 +2,10 @@ import mongoose from 'mongoose';
 
 const WorkoutSchema = mongoose.Schema({
     creator: String,
-    name: String,
+    workout: String,
     status: Boolean,
 })
 
-const WorkoutsMessage = mongoose.model('WorkoutMessage', WorkoutSchema);
+const WorkoutMessage = mongoose.model('WorkoutMessage', WorkoutSchema);
 
-export default WorkoutsMessage;
+export default WorkoutMessage;

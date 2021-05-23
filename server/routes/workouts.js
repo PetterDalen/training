@@ -5,6 +5,6 @@ import { getWorkouts, createWorkout } from '../controllers/workouts.js';
 const router = express.Router();
 
 router.get('/', getWorkouts);
-router.get('/', createWorkout);
+router.post('/', createWorkout);
 
 export default router;
