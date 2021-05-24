@@ -1,11 +1,12 @@
+
 import mongoose from 'mongoose';
 
-const WorkoutSchema = mongoose.Schema({
+const workoutSchema = mongoose.Schema({
     creator: String,
-    workout: String,
+    title: String,
     status: Boolean,
 })
 
-const WorkoutMessage = mongoose.model('WorkoutMessage', WorkoutSchema);
+var WorkoutMessage = mongoose.model('WorkoutMessage', workoutSchema);
 
 export default WorkoutMessage;

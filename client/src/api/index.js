@@ -1,6 +1,7 @@
+
 import axios from 'axios';
 
-const url = 'http://localhost:5000/workouts';
+const url = 'http://localhost:5001/workouts';
 
-export const fetchWorkouts = () => axios.get(url);
-export const createWorkout = () => (newWorkout) => axios.post(url, newWorkout);
+export const getWorkouts = () => axios.get(url);
+export const createWorkout = (newWorkout) => axios.post(url, newWorkout);

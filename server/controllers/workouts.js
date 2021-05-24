@@ -1,33 +1,47 @@
+import express from 'express';
+import mongoose from 'mongoose';
+
 import WorkoutMessage from '../models/workoutMessage.js';
 
-export const getWorkouts = async (req, res) => {
-    try {
-        const workoutMessages = await WorkoutMessage.find();
-        
-        console.log("workoutMessages")
-        console.log(workoutMessages);
+const router = express.Router();
 
-        res.status(200).json(workoutMessages);
+export const getPosts = async (req, res) => { 
+    try {
+        const postMessages = await PostMessage.find();
+                
+        res.status(200).json(postMessages);
     } catch (error) {
-         res.status(404).json({ message: error.message });
+        res.status(404).json({ message: error.message });
+    }
+}
+
+export const getPost = async (req, res) => { 
+    const { id } = req.params;
+
+    try {
+        const post = await PostMessage.findById(id);
+        
+        res.status(200).json(post);
+    } catch (error) {
+        res.status(404).json({ message: error.message });
     }
 }
 
 export const createWorkout = async (req, res) => {
-    const workout = req.body;
+    const { creator, title, status, date } = req.body;
 
-    console.log("controller")
-
-    const newWorkout = new WorkoutMessage(workout);
+    const newWorkoutMessage = new WorkoutMessage({ creator, title, status })
 
     try {
-        await newWorkout.save();
+        await newWorkoutMessage.save();
 
-        console.log("newWorkout")
-        console.log(newWorkout)
-
-        res.status(201).json(newWorkout)
+        res.status(201).json(newWorkoutMessage );
     } catch (error) {
         res.status(409).json({ message: error.message });
     }
 }
+
+
+
+
+export default router;

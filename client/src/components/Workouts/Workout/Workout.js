@@ -1,9 +1,10 @@
-import { Box, Checkbox, Grid } from '@material-ui/core';
-import React from 'react';
+import React, { useState } from 'react';
 import useStyles from './styles';
+import { form, TextField, Button, Grid, Box, Checkbox } from '@material-ui/core';
 
-const Workout = () => {
+const Workouts = () => {
     const classes = useStyles();
+
     return (
         <>
         <Grid container>
@@ -19,9 +20,7 @@ const Workout = () => {
             </Grid>
         </Grid>
         </>
-
-
     )
 }
 
-export default Workout;
+export default Workouts;

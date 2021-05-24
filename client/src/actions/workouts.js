@@ -1,28 +1,24 @@
-import * as api from '../api';
+import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE } from '../constants/actionTypes';
 
-export const getWorkouts = () => async(dispatch) => {
-    try {
-        const { data } = await api.fetchWorkouts();
+import * as api from '../api/index.js';
 
-        dispatch({ type: 'FETCH_ALL', payload: data });
-    } catch (error) {
-        console.log(error.message);
-    }
+export const getWorkouts = () => async (dispatch) => {
+  try {
+    const { data } = await api.getWorkouts();
 
-}
+    dispatch({ type: FETCH_ALL, payload: data });
+  } catch (error) {
+    console.log(error.message);
+  }
+};
 
 export const createWorkout = (workout) => async (dispatch) => {
-    try {
-        console.log("actions 1")
-        const { data } = await api.createWorkout(workout);
-        console.log("actions 2")
+  try {
+    const { data } = await api.createWorkout(workout);
 
-        dispatch({ type: 'CREATE', payload: data });
-        console.log("data")
-        console.log(data)
-        console.log("workout")
-        console.log(workout)
-    } catch (error) {
-        console.log(error);
-    }
-}
+    dispatch({ type: CREATE, payload: data });
+  } catch (error) {
+    console.log(error.message);
+  }
+
+};
