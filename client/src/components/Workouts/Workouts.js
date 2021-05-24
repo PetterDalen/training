@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { TextField, Button, Typography, Grid, form} from '@material-ui/core';
+import { TextField, Button, Grid } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 
 import useStyles from './styles';
-import { createWorkout, updatePost } from '../../actions/workouts';
+import { createWorkout } from '../../actions/workouts';
 
 import Workout from './Workout/Workout'
 

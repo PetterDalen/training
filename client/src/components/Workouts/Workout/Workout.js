@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import useStyles from './styles';
-import { form, TextField, Button, Grid, Box, Checkbox } from '@material-ui/core';
+import { Grid, Box, Checkbox } from '@material-ui/core';
 
 const Workouts = () => {
     const classes = useStyles();
