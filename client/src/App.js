@@ -27,9 +27,6 @@ const App = () => {
                             <Workouts />
                         </Grid>
                         <Grid item xs={12} sm={4}>
-                            <button>
-                                heyo
-                            </button>
                         </Grid>
                     </Grid>
                 </Container>
