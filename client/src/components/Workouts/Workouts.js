@@ -9,13 +9,17 @@ import Workout from './Workout/Workout'
 
 const Workouts = ({ currentId, setCurrentId }) => {
   const [workoutData, setWorkoutData] = useState({creator: 'Admin', title: '', status: false });
-  const post = useSelector((state) => (currentId ? state.posts.find((message) => message._id === currentId) : null));
+  const workouts = useSelector((state) => state.workouts);
+
+  console.log("workouts");
+  console.log(workouts);
+
   const dispatch = useDispatch();
   const classes = useStyles();
 
   useEffect(() => {
-    if (post) setWorkoutData(post);
-  }, [post]);
+    if (workouts) setWorkoutData(workouts);
+  }, [workouts]);
 
 
   const handleSubmit = async (e) => {
@@ -25,18 +29,22 @@ const Workouts = ({ currentId, setCurrentId }) => {
   };
 
   return (
+    !workouts.length ? <div> ingenting </div> : (
+
+    
     <>
     <h1> Workouts </h1>
-    <Grid container>
-        <Grid item xs={12}>
-            <Workout className={classes.workout}/>
-        </Grid>
-        <Grid item xs={12}>
-            <Workout className={classes.workout}></Workout>
-        </Grid>
-        <Grid item xs={12}>
-            <Workout className={classes.workout}></Workout>
-        </Grid>
+    
+    <Grid className={classes.container} container alignItems="stretch" spacing={3}>
+      {
+        workouts.map((workout) => (
+          <Grid key={workout._id} item xs={12}>
+            {console.log("workout in design")}
+            {console.log(workout)}
+            <Workout workout={workout}> </Workout>
+          </Grid>
+        ))
+      }
         <form autoComplete="off" noValidate className={classes.form} onSubmit={handleSubmit}> 
             <TextField name="workout" variant="outlined" label="New workout" fullWidth  value={workoutData.title} onChange={(e) => setWorkoutData({ ...workoutData, title: e.target.value })}
             ></TextField>
@@ -49,7 +57,7 @@ const Workouts = ({ currentId, setCurrentId }) => {
     </Grid>
     </>
 
-  );
+  ));
 };
 
 export default Workouts;

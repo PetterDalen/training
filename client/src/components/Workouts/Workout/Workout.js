@@ -2,7 +2,7 @@ import React from 'react';
 import useStyles from './styles';
 import { Grid, Box, Checkbox } from '@material-ui/core';
 
-const Workouts = () => {
+const Workout = ({ workout }) => {
     const classes = useStyles();
 
     return (
@@ -10,7 +10,8 @@ const Workouts = () => {
         <Grid container>
             <Grid item xs={6}>
                 <Box className={classes.box}>
-                    <h2> Workout </h2>
+                {console.log("workout in design")}
+                    <h2> {workout.title} </h2>
                 </Box>  
             </Grid>
             <Grid item xs={4}>
@@ -23,4 +24,4 @@ const Workouts = () => {
     )
 }
 
-export default Workouts;
+export default Workout;
