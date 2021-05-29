@@ -4,12 +4,24 @@ import { Grid, Box, Checkbox, Card, Typography, Button } from '@material-ui/core
 import { DeleteIcon } from '@material-ui/icons';
 import { useDispatch } from 'react-redux';
 
-import { deleteWorkout } from '../../../actions/workouts';
+import { deleteWorkout, checkWorkout } from '../../../actions/workouts';
 
 const Workout = ({ workout }) => {
     const classes = useStyles();
     const [show, setShow] = useState(false);
     const dispatch = useDispatch();
+
+    const handleCheckWorkout = async(e) => {
+        e.preventDefault();
+
+        if (workout.status) {
+            workout.status = false;
+        }
+        else {
+            workout.status = true
+        }
+        dispatch(checkWorkout(workout._id, workout));
+    }
 
     return (
         <>
@@ -24,7 +36,7 @@ const Workout = ({ workout }) => {
                </Typography>
             </div>
             <div className={classes.overlay2}>
-            <Checkbox className={classes.checkBox}> 
+            <Checkbox className={classes.checkBox} onChange={handleCheckWorkout} checked={workout.status}> 
 
             </Checkbox>
             </div>

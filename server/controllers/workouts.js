@@ -52,6 +52,17 @@ export const deleteWorkout = async (req, res) => {
 
 }
 
+export const checkWorkout = async (req, res) => {
+    const { id } = req.params;
+    const workout = req.body;
+    
+    if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('Ingen workouts med den id-en');
+
+    const checkedWorkout = await WorkoutMessage.findByIdAndUpdate(id, workout, { new: true });
+
+    res.json({ checkedWorkout });
+}
+
 
 
 

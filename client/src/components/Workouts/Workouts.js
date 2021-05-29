@@ -24,6 +24,8 @@ const Workouts = ({ currentId, setCurrentId }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    workoutData.status= false;
+
     dispatch(createWorkout(workoutData));
 
   };
