@@ -8,7 +8,7 @@ export const getWorkouts = () => async (dispatch) => {
 
     dispatch({ type: FETCH_ALL, payload: data });
   } catch (error) {
-    console.log(error.message);
+    console.log(error);
   }
 };
 
@@ -18,7 +18,19 @@ export const createWorkout = (workout) => async (dispatch) => {
 
     dispatch({ type: CREATE, payload: data });
   } catch (error) {
-    console.log(error.message);
+    console.log(error);
   }
 
 };
+
+export const deleteWorkout = (id) => async (dispatch) => { 
+  try {
+    console.log("kommer til action")
+    await api.deleteWorkout(id);
+
+
+    dispatch({ type: 'DELETE', payload: id })
+  } catch (error) {
+    console.log(error);
+  }
+}

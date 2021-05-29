@@ -41,6 +41,17 @@ export const createWorkout = async (req, res) => {
     }
 }
 
+export const deleteWorkout = async (req, res) => {
+    const { id } = req.params;
+
+    if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('Ingen workouts med den id-en');
+
+    await WorkoutMessage.findByIdAndRemove(id);
+
+    res.json({ message: 'Workout slettet' });
+
+}
+
 
 
 
