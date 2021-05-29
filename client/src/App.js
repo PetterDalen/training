@@ -21,9 +21,9 @@ const App = () => {
                 <Typography className={classes.heading} variant="h2" align="center">Trening</Typography>
             </AppBar>
             <Grow in>
-                <Container>
+                <Container className={classes.leftContainer}>
                     <Grid container justify="space-between" alignItems="strect" spacing="3" maxWidth="10px">
-                        <Grid item xs={12} sm={7}>
+                        <Grid item xs={12} sm={4}>
                             <Workouts />
                         </Grid>
                         <Grid item xs={12} sm={4}>

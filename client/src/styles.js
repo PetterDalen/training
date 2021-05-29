@@ -8,10 +8,13 @@ export default makeStyles( () => ({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center', 
-        background: '#2E3B55'
+        background: '#666666'
     },
     heading: {
         
+    },
+    leftContainer: {
+        maxWidth: 'xs',
     }
     
 }))

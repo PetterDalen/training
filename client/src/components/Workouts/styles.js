@@ -11,5 +11,20 @@ export default makeStyles( () => ({
 
     },
 
+    form: {
+        padding: '12px',
+    },
+
+    container: {
+        float: 'right',
+        marginLeft: '90px',
+    },
+
+    buttonSubmit: {
+        backgroundColor: '#00A5FF',
+        margin: '2px',
+
+    }
+
     
 }))
