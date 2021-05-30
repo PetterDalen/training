@@ -7,3 +7,4 @@ export const getWorkouts = () => axios.get(url);
 export const createWorkout = (newWorkout) => axios.post(url, newWorkout);
 export const deleteWorkout = (id) => axios.delete(`${url}/${id}`);
 export const checkWorkout = (id, updatedWorkout) => axios.patch(`${url}/${id}`, updatedWorkout);
+export const updatedWorkout = (id, updatedWorkout) => axios.patch(`${url}/${id}`, updatedWorkout);

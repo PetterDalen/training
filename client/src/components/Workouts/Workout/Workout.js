@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 
 import { deleteWorkout, checkWorkout } from '../../../actions/workouts';
 
-const Workout = ({ workout }) => {
+const Workout = ({ workout, setCurrentId }) => {
     const classes = useStyles();
     const [show, setShow] = useState(false);
     const dispatch = useDispatch();
@@ -26,11 +26,11 @@ const Workout = ({ workout }) => {
     return (
         <>
         
-        <div className={classes.container} onMouseEnter={() => setShow(true)} onMouseLeave={() => setShow(false)} >
+        <div className={classes.container} onMouseEnter={() => setShow(true)} onMouseLeave={() => setShow(false)} onClick={ () => setCurrentId(workout._id)}>
             <div> 
                 {show && <Button variant='contained' color='secondary' onClick={() => dispatch(deleteWorkout(workout._id))}> delete</Button>}
             </div>
-        <Card className={classes.card} >
+            <Card className={classes.card} >
             <div className={classes.overlay}>
                 <Typography variant="h6" > {workout.title}
                </Typography>

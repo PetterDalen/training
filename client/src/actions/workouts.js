@@ -39,8 +39,17 @@ export const checkWorkout = (id, workout) => async (dispatch) => {
   try {
     const { data } = await api.checkWorkout(id, workout);
     
+    dispatch({ type: '', payload: data });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export const updateWorkout = (id, workout) => async (dispatch) => {
+  try {
+    const { data } = await api.updatedWorkout(id, workout);
     dispatch({ type: 'UPDATE', payload: data });
   } catch (error) {
-    console.log(error.message);
+    console.log(error);
   }
 }

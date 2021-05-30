@@ -7,7 +7,7 @@ import { createWorkout } from '../../actions/workouts';
 
 import Workout from './Workout/Workout'
 
-const Workouts = ({ currentId, setCurrentId }) => {
+const Workouts = ({ setCurrentId }) => {
   const [workoutData, setWorkoutData] = useState({creator: 'Admin', title: '', status: false });
   const workouts = useSelector((state) => state.workouts);
 
@@ -43,7 +43,7 @@ const Workouts = ({ currentId, setCurrentId }) => {
       {
         workouts.map((workout) => (
           <Grid key={workout._id} item xs={12}>
-            <Workout workout={workout}> </Workout>
+            <Workout workout={workout} setCurrentId={setCurrentId}> </Workout>
           </Grid>
         ))
       }

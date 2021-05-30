@@ -3,35 +3,32 @@ import { TextField, Button, Paper, Grid, Typography, Box } from '@material-ui/co
 import { useDispatch, useSelector } from 'react-redux';
 
 import useStyles from './styles';
-import { createWorkout } from '../../actions/workouts';
+import { createWorkout, updateWorkout } from '../../actions/workouts';
 
 
 const WorkoutInfo = ({ currentId, setCurrentId }) => {
   const [workoutData, setWorkoutData] = useState({creator: 'Admin', title: '', status: false, description: '' });
-  const workouts = useSelector((state) => state.workouts);
+  const workout = useSelector((state) => currentId ? state.workouts.find((p) => p._id == currentId) : null);
 
 
   const dispatch = useDispatch();
   const classes = useStyles();
 
   useEffect(() => {
-    if (workouts) setWorkoutData(workouts);
-  }, [workouts]);
+    if (workout) setWorkoutData(workout);
+  }, [workout]);
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    workoutData.status= false;
     console.log("description i component")
     console.log(workoutData.description)
 
-    dispatch(createWorkout(workoutData));
+    dispatch(updateWorkout(currentId, workoutData));
 
   };
 
-  return (
-    !workouts.length ? <div> ingenting </div> : (
-    
+  return ( 
     <>
 
     <Paper className={classes.paper}>
@@ -52,10 +49,9 @@ const WorkoutInfo = ({ currentId, setCurrentId }) => {
         </form>
       </Paper>
 
-
     </>
 
-  ));
+  );
 };
 
 export default WorkoutInfo;
