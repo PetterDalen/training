@@ -47,17 +47,6 @@ const Workouts = ({ currentId, setCurrentId }) => {
           </Grid>
         ))
       }
-      <div className={classes.container}>
-        <form autoComplete="off" noValidate className={classes.form} onSubmit={handleSubmit}> 
-            <TextField  name="workout" variant="outlined" label="New workout" fullWidth  value={workoutData.title} onChange={(e) => setWorkoutData({ ...workoutData, title: e.target.value })}
-            ></TextField>
-            <Button className={classes.buttonSubmit} vaiant="contained" size="large" type="submit" >
-            Legg til
-        </Button>
-        </form>
-      </div>
-
-
     </Grid>
     </>
 

@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { getWorkouts } from './actions/workouts';
 import Workouts from './components/Workouts/Workouts';
 import useStyles from './styles';
+import Form from './components/Form/Form';
 
 const App = () => {
     const classes = useStyles();
@@ -27,6 +28,7 @@ const App = () => {
                             <Workouts />
                         </Grid>
                         <Grid item xs={12} sm={4}>
+                            <Form />
                         </Grid>
                     </Grid>
                 </Container>
