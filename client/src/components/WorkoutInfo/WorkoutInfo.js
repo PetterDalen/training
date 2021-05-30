@@ -6,7 +6,7 @@ import useStyles from './styles';
 import { createWorkout } from '../../actions/workouts';
 
 
-const Form = ({ currentId, setCurrentId }) => {
+const WorkoutInfo = ({ currentId, setCurrentId }) => {
   const [workoutData, setWorkoutData] = useState({creator: 'Admin', title: '', status: false, description: '' });
   const workouts = useSelector((state) => state.workouts);
 
@@ -36,8 +36,8 @@ const Form = ({ currentId, setCurrentId }) => {
 
     <Paper className={classes.paper}>
         <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`}onSubmit={handleSubmit}> 
-            <Typography variant="h6"> Lag en treningsøkt </Typography>
-            <TextField  name="workout" variant="outlined" label="New workout" fullWidth  value={workoutData.title} onChange={(e) => setWorkoutData({ ...workoutData, title: e.target.value })}
+            <Typography variant="h6"> Info </Typography>
+            <TextField  name="workout" variant="outlined" fullWidth  value={workoutData.title} onChange={(e) => setWorkoutData({ ...workoutData, title: e.target.value })}
             ></TextField>
             <TextField 
                 name="description" variant="outlined" fullWidth  value={workoutData.description} onChange={(e) => setWorkoutData({ ...workoutData, description: e.target.value })}
@@ -47,7 +47,7 @@ const Form = ({ currentId, setCurrentId }) => {
                 variant="filled"
             ></TextField>
             <Button className={classes.buttonSubmit} vaiant="contained" size="large" type="submit" >
-            Legg til
+            Lagre
         </Button>
         </form>
       </Paper>
@@ -58,4 +58,4 @@ const Form = ({ currentId, setCurrentId }) => {
   ));
 };
 
-export default Form;
+export default WorkoutInfo;

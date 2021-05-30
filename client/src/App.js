@@ -7,6 +7,7 @@ import { getWorkouts } from './actions/workouts';
 import Workouts from './components/Workouts/Workouts';
 import useStyles from './styles';
 import Form from './components/Form/Form';
+import WorkoutInfo from './components/WorkoutInfo/WorkoutInfo';
 
 const App = () => {
     const classes = useStyles();
@@ -26,6 +27,9 @@ const App = () => {
                     <Grid container justify="space-between" alignItems="strect" spacing="3" maxWidth="10px">
                         <Grid item xs={12} sm={4}>
                             <Workouts />
+                        </Grid>
+                        <Grid item xs={12} sm={4}>
+                            <WorkoutInfo />
                         </Grid>
                         <Grid item xs={12} sm={4}>
                             <Form />
