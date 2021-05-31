@@ -39,6 +39,10 @@ export default makeStyles( () => ({
         display: 'flex',
         flexDirection: 'row',
         float: 'right',
+    },
+
+    checkBox: {
+        color: 'primary',
     }
     
 }))

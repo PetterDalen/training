@@ -28,7 +28,7 @@ const Workout = ({ workout, setCurrentId }) => {
         
         <div className={classes.container} onMouseEnter={() => setShow(true)} onMouseLeave={() => setShow(false)} onClick={ () => setCurrentId(workout._id)}>
             <div> 
-                {show && <Button variant='contained' color='secondary' onClick={() => dispatch(deleteWorkout(workout._id))}> delete</Button>}
+                {show && <Button variant='contained' color='secondary' onClick={() => dispatch(deleteWorkout(workout._id))}> Slett </Button>}
             </div>
             <Card className={classes.card} >
             <div className={classes.overlay}>
@@ -36,7 +36,7 @@ const Workout = ({ workout, setCurrentId }) => {
                </Typography>
             </div>
             <div className={classes.overlay2}>
-            <Checkbox className={classes.checkBox} onChange={handleCheckWorkout} checked={workout.status}> 
+            <Checkbox color="primary" className={classes.checkBox} onChange={handleCheckWorkout} checked={workout.status}> 
 
             </Checkbox>
             </div>
