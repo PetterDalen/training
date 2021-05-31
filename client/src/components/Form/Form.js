@@ -37,7 +37,7 @@ const Form = ({ currentId, setCurrentId }) => {
     <Paper className={classes.paper}>
         <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`}onSubmit={handleSubmit}> 
             <Typography variant="h6"> Lag en treningsøkt </Typography>
-            <TextField  name="workout" variant="outlined" label="New workout" fullWidth  value={workoutData.title} onChange={(e) => setWorkoutData({ ...workoutData, title: e.target.value })}
+            <TextField  name="workout" variant="outlined" label="Ny økt" fullWidth  value={workoutData.title} onChange={(e) => setWorkoutData({ ...workoutData, title: e.target.value })}
             ></TextField>
             <TextField 
                 name="description" variant="outlined" fullWidth  value={workoutData.description} onChange={(e) => setWorkoutData({ ...workoutData, description: e.target.value })}

@@ -36,7 +36,7 @@ const Workouts = ({ setCurrentId }) => {
     
     <>
     <Box m={2} pl={8}>
-      <Typography variant="h5" >  heihei  </Typography>
+      <Typography variant="h5" > Økter  </Typography>
     </Box>
 
     <Grid className={classes.container} container alignItems="stretch" spacing={3}>
