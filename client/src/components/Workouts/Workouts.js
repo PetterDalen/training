@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { TextField, Button, Grid, Typography, Box } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
+import moment from 'moment';
 
 import useStyles from './styles';
 import { createWorkout } from '../../actions/workouts';
@@ -40,10 +41,13 @@ const Workouts = ({ setCurrentId }) => {
     </Box>
 
     <Grid className={classes.container} container alignItems="stretch" spacing={3}>
+      {console.log("nå kommer datene")}
+      {workouts.forEach((workout) => console.log(moment().week()))}
       {
-        workouts.map((workout) => (
+        workouts.filter((workout) => moment(workout.createdAt).week() === moment().week())
+          .map((workout) => (
           <Grid key={workout._id} item xs={12}>
-            <Workout workout={workout} setCurrentId={setCurrentId}> </Workout>
+            <Workout workout={workout} setCurrentId={setCurrentId} >  </Workout>
           </Grid>
         ))
       }

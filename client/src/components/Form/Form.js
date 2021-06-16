@@ -7,7 +7,7 @@ import { createWorkout } from '../../actions/workouts';
 
 
 const Form = ({ currentId, setCurrentId }) => {
-  const [workoutData, setWorkoutData] = useState({creator: 'Admin', title: '', status: false, description: '' });
+  const [workoutData, setWorkoutData] = useState({creator: 'Admin', title: '', status: false, description: '', createdAt: new Date()  });
   const workouts = useSelector((state) => state.workouts);
 
 
@@ -22,8 +22,8 @@ const Form = ({ currentId, setCurrentId }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     workoutData.status= false;
-    console.log("description i component")
-    console.log(workoutData.description)
+    workoutData.createdAt = new Date()
+
 
     dispatch(createWorkout(workoutData));
 

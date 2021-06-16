@@ -25,7 +25,6 @@ export const createWorkout = (workout) => async (dispatch) => {
 
 export const deleteWorkout = (id) => async (dispatch) => { 
   try {
-    console.log("kommer til action")
     await api.deleteWorkout(id);
 
 

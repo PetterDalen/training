@@ -28,9 +28,9 @@ export const getPost = async (req, res) => {
 }
 
 export const createWorkout = async (req, res) => {
-    const { creator, title, status, description, date } = req.body;
+    const { creator, title, status, description, createdAt } = req.body;
 
-    const newWorkoutMessage = new WorkoutMessage({ creator, title, status, description })
+    const newWorkoutMessage = new WorkoutMessage({ creator, title, status, description, createdAt })
 
     try {
         await newWorkoutMessage.save();
