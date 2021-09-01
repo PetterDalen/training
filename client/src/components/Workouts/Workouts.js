@@ -44,7 +44,7 @@ const Workouts = ({ setCurrentId }) => {
       {console.log("nå kommer datene")}
       {workouts.forEach((workout) => console.log(moment().week()))}
       {
-        workouts.filter((workout) => moment(workout.createdAt).week() === moment().week())
+        workouts
           .map((workout) => (
           <Grid key={workout._id} item xs={12}>
             <Workout workout={workout} setCurrentId={setCurrentId} >  </Workout>

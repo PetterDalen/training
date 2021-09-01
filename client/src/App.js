@@ -1,44 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
-import { useDispatch } from 'react-redux';
+import Navbar from './components/Navbar/Navbar';
 
-
-import { getWorkouts } from './actions/workouts';
-import Workouts from './components/Workouts/Workouts';
-import useStyles from './styles';
-import Form from './components/Form/Form';
-import WorkoutInfo from './components/WorkoutInfo/WorkoutInfo';
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import Home from './components/Home/Home'
+import Auth from './components/Auth/Auth'
 
 const App = () => {
-    const [currentId, setCurrentId] = useState(null);
-    const classes = useStyles();
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(getWorkouts());
-    }, [dispatch])
+    const state = null;
 
     return (
+        <BrowserRouter>
         <Container maxWidth="lg">
-            <AppBar className={classes.appBar} position="static">
-                <Typography className={classes.heading} variant="h2" align="center">Trening</Typography>
-            </AppBar>
-            <Grow in>
-                <Container className={classes.leftContainer}>
-                    <Grid container justify="space-between" alignItems="strect" spacing="3" maxWidth="10px">
-                        <Grid item xs={12} sm={4}>
-                            <Workouts setCurrentId={setCurrentId}/>
-                        </Grid>
-                        <Grid item xs={12} sm={4}>
-                            <WorkoutInfo currentId={currentId} setCurrentId={setCurrentId}/>
-                        </Grid>
-                        <Grid item xs={12} sm={4}>
-                            <Form />
-                        </Grid>
-                    </Grid>
-                </Container>
-            </Grow>
+            <Navbar/>
+            <Switch>
+                <Route path="/" exact component={Home}/>
+                <Route path="/auth" exact component={Auth}/>
+            </Switch>
         </Container>
+        
+        </BrowserRouter>
     )
 }
 
